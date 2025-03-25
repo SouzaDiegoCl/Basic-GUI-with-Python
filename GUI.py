@@ -2,13 +2,13 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 ### Variables 
-images_folder_path = "./"
+images_folder_path = "./images/"
 
 ### Init
 screen_root = Tk()
 
 
-profile_image = ImageTk.PhotoImage(Image.open("./image.png"))
+profile_image = ImageTk.PhotoImage(Image.open(images_folder_path+"image.png"))
 lbl_profile_image = Label(screen_root, image=profile_image)
 lbl_profile_image.image = profile_image
 lbl_profile_image.place(x=10, y=50)
