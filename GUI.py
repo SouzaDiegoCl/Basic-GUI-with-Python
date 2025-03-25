@@ -7,11 +7,18 @@ images_folder_path = "./images/"
 ### Init
 screen_root = Tk()
 
+profile_image_prep = Image.open(images_folder_path+"profile_image_example.jpeg")
 
-profile_image = ImageTk.PhotoImage(Image.open(images_folder_path+"image.png"))
+width, height = profile_image_prep.size
+if width > 150:
+    proportion = width / 150
+    new_height = int(width / proportion)
+    profile_image_prep = profile_image_prep.resize((110, new_height)) 
+
+profile_image = ImageTk.PhotoImage(profile_image_prep)
 lbl_profile_image = Label(screen_root, image=profile_image)
 lbl_profile_image.image = profile_image
-lbl_profile_image.place(x=10, y=50)
+lbl_profile_image.place(relx=200, y=250,  anchor="ne")
 
 
 screen_root.title("Formulário Interface")
